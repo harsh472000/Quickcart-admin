@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../adminlte.min.css">
+
+    <style>
+        span
+        {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <section class="content">
+
+           
+                <!-- Default box -->
+                <article class="card card-solid">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                         
+                                <h3 class="d-inline-block d-sm-none"> </h3>
+                                <div class="col-12">
+                                    <img src="../../img/circle.png" class="product-image" alt="Product Image"  >
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <h3 class="my-3"> <p>  <%= productdetails.ProductName %></p></h3>
+                         
+                                <p>
+                                   
+                                    <%= productdetails.description%>
+                                </p>
+                                <p>
+                                    <span>&#8377;</span> <%= productdetails.price%>
+                                </p>
+                                <hr>
+                                <div class="mt-4">
+                                    <a href="thankyou">
+                                        <div class="btn btn-primary btn-lg btn-flat">
+                                            <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                                            Add to Cart
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </article>
+                
+        </section>
+    </div>
+
+</body>
+
+</html>

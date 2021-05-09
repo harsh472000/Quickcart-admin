@@ -1,0 +1,283 @@
+<html>
+
+<head>
+  <title>dash</title>
+  <link rel="stylesheet" href="../../dash.css">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-template-rows: 275px 275px;
+      grid-gap: 20px;
+      background: linear-gradient(to left, #f5e3e6, #d9e4f5);
+      padding: 20px;
+    }
+
+    .grid-container>section {
+      background-color: rgba(255, 255, 255, 255);
+      border-radius: 20px;
+      text-align: center;
+      padding-top: 12px;
+    }
+
+    form {
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      /* padding-top: 50px; */
+    }
+
+    .value-button {
+      display: inline-block;
+      border: 1px solid #ddd;
+      margin: 0px;
+      width: 40px;
+      height: 20px;
+      text-align: center;
+      vertical-align: middle;
+      padding: 11px 0;
+      background: #eee;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    #cart {
+      height: 40px;
+      border: none;
+      margin: 0 auto;
+      width: 140px;
+      background-color: green;
+      color: white;
+      font-weight: bold;
+    }
+
+    .value-button:hover {
+      cursor: pointer;
+    }
+
+    form #decrease {
+      margin-right: -4px;
+      border-radius: 8px 0 0 8px;
+      background-color: rgb(230, 154, 14);
+      font-weight: bold;
+      color: white;
+    }
+
+    form #increase {
+      margin-left: -4px;
+      border-radius: 0 8px 8px 0;
+      background-color: rgb(230, 154, 14);
+      ;
+      font-weight: bold;
+      color: white;
+    }
+
+    form #input-wrap {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    input.number {
+      text-align: center;
+      border: none;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      margin: 0px;
+      width: 40px;
+      height: 40px;
+    }
+
+    a{
+    text-decoration: none;
+    font-size: large;
+    border-radius: 2px;
+    text-align: center;
+    
+    padding-right: 20px;
+    font-size: 14px;
+    }
+
+  input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <article class="container">
+    <section class="navbar">
+      <img src="../../img/circle.png" class="logo">
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Men</a></li>
+          <li><a href="">Women</a></li>
+          <li><a href="">Other Collection</a></li>
+        </ul>
+      </nav>
+      <img src="../../img/cart.png" class="cart">
+    </section>
+    <section class="content">
+      <a href="">2021 Collections</a>
+      <h1>You should always<br>feel awesome</h1>
+      <p>Clothes that are sure to give you a cool look in summers.</p>
+    </section>
+    <img src="../../img/take.png" class="feature-img">
+  </article>
+
+  <section class="grid-container">
+    <% if(productlist.length>0)
+      {
+      productlist.forEach((product)=>
+      {
+      %>
+      <section class="item1">
+        <img src="img/3.jpg" alt="img1" width="150" height="200">
+        <form>
+          <p>
+            <%= product.ProductName %>
+          </p>
+
+     <!--<section class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</section>
+          <input type="number" class="number" id="number" value="0" />
+          <section class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</section>
+          <input type="submit" id="cart" value="Add To Cart">
+     --> 
+       <a href="/ProductDetails/<%= product._id%>">More Details</a>
+        </form>
+      </section>
+      <% }) } %>
+  </section>
+
+
+        <script>
+          function increaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number').value = value;
+          }
+
+
+          function decreaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number').value = value;
+          }
+
+          function increaseValue1() {
+            var value = parseInt(document.getElementById('number2').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number2').value = value;
+          }
+          function decreaseValue1() {
+            var value = parseInt(document.getElementById('number2').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number2').value = value;
+          }
+
+          function increaseValue2() {
+            var value = parseInt(document.getElementById('number3').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number3').value = value;
+          }
+          function decreaseValue2() {
+            var value = parseInt(document.getElementById('number3').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number3').value = value;
+          }
+
+          function increaseValue3() {
+            var value = parseInt(document.getElementById('number4').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number4').value = value;
+          }
+          function decreaseValue3() {
+            var value = parseInt(document.getElementById('number4').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number4').value = value;
+          }
+
+          function increaseValue4() {
+            var value = parseInt(document.getElementById('number5').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number5').value = value;
+          }
+          function decreaseValue4() {
+            var value = parseInt(document.getElementById('number5').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number5').value = value;
+          }
+
+          function increaseValue5() {
+            var value = parseInt(document.getElementById('number6').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number6').value = value;
+          }
+          function decreaseValue5() {
+            var value = parseInt(document.getElementById('number6').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number6').value = value;
+          }
+
+          function increaseValue6() {
+            var value = parseInt(document.getElementById('number7').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number7').value = value;
+          }
+          function decreaseValue6() {
+            var value = parseInt(document.getElementById('number7').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number7').value = value;
+          }
+          function increaseValue7() {
+            var value = parseInt(document.getElementById('number8').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number8').value = value;
+          }
+          function decreaseValue7() {
+            var value = parseInt(document.getElementById('number8').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number8').value = value;
+          }
+
+        </script>
+
+</body>
+
+</html>
